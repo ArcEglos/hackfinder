@@ -1,11 +1,12 @@
 import React, {Component, PropTypes} from 'react'
 import {Navigator, StatusBar, StyleSheet, View} from 'react-native'
+import {connect} from 'react-redux'
 
 import BuzzScene from './buzz/BuzzScene'
 import LoginScene from './login/LoginScene'
 import Styles from './Styles'
 
-export default class MainScene extends Component {
+class MainScene extends Component {
 
   constructor (props, context) {
     super(props, context)
@@ -59,15 +60,24 @@ export default class MainScene extends Component {
   }
 
   render () {
+    let {account} = this.props
+    console.log(this.props)
+
     return (
       <View style={Styles.fullContainer}>
         <StatusBar {...this.statusBarDefaults} />
         <Navigator
           ref='navigator'
-          initialRoute={this.scenes.login}
+          initialRoute={account ? this.scenes.buzz : this.scenes.login}
           renderScene={this.renderScene}
         />
       </View>
     )
   }
 }
+
+export default connect(
+  state => ({
+    account: state.auth.account
+  })
+)(MainScene)

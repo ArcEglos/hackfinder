@@ -12,7 +12,6 @@ export function startServerAuth (userId, accessToken) {
       }
     })
     .then(res => {
-      console.log(res)
       dispatch({type: SERVER_AUTH_END, account: res.body})
     }, console.error)
   }

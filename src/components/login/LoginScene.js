@@ -12,6 +12,10 @@ class LoginScene extends Component {
     this.onLoginFinished = this.onLoginFinished.bind(this)
   }
 
+  componentDidMount () {
+    this.serverAuth()
+  }
+
   componentWillReceiveProps (nextProps) {
     if (nextProps.account && !this.props.account) {
       this.props.replaceScene('buzz')
@@ -24,13 +28,20 @@ class LoginScene extends Component {
     } else if (res.isCancelled) {
       console.error('cancelled')
     } else {
-      AccessToken
-      .getCurrentAccessToken()
-      .then(
-        data => this.props.startServerAuth(data.userID, data.accessToken),
-        console.error
-      )
+      this.serverAuth()
     }
+  }
+
+  serverAuth () {
+    AccessToken
+    .getCurrentAccessToken()
+    .then(
+      data => {
+        console.log(data)
+        this.props.startServerAuth(data.userID, data.accessToken)
+      },
+      console.error
+    )
   }
 
   render () {
