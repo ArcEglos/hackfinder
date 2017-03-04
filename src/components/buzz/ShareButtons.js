@@ -1,39 +1,31 @@
 import React, {PropTypes} from 'react'
-import {StyleSheet, Text, View} from 'react-native'
-import {Icon} from 'react-native-elements'
+import {StyleSheet, Text, View, TouchableHighlight} from 'react-native'
+import {SocialIcon} from 'react-native-elements'
 
-const SocialIcon = ({name}) => (
-  <Icon
-    containerStyle={styles.icon}
-    color='#ea4d00'
-    type='material-community'
-    size={16}
-    name={name}
-  />
-)
-
-export default function ShareButtons ({style}) {
+export default function ShareButtons ({style, postContentURL}) {
   return (
     <View style={[styles.container, style]}>
-      <SocialIcon name='twitter' />
-      <SocialIcon name='facebook' />
-      <SocialIcon name='snapchat' />
+      {/*<TouchableHighlight onPress={() => { onPressFacebook(postContentURL); } }>*/}
+        <SocialIcon style={styles.socialIcon} type='facebook' title='Teilen' button/>
+      {/*</TouchableHighlight>*/}
+      <SocialIcon style={styles.socialIcon} type='twitter' title="Tweet" button/>
+      {/*<SocialIcon name='snapchat' />*/}
     </View>
   )
 }
 
+function onPressFacebook(postContentURL) {
+
+  // share with facebook
+}
+
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-between'
   },
-  icon: {
-    width: 26,
-    height: 26,
-    borderRadius: 13,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#fff'
+  socialIcon: {
+    flex: 1
+
   }
 })

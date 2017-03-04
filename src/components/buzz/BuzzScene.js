@@ -18,11 +18,17 @@ class BuzzScene extends Component {
     let buzz = items[0]
 
     return (
+
       <View style={[Styles.statusBarContainer, styles.container]}>
+        <View style={{
+          flex: 1,
+          flexDirection: 'column',
+        }}>
         {buzz && <Buzz buzz={buzz} />}
         {buzz && <Countdown to={buzz.expirationDate} />}
-        <ShareButtons style={styles.socialButtons} />
+        <ShareButtons style={styles.socialButtons} postContentURL='http://catpics.com'/>
       </View>
+    </View>
     )
   }
 }
@@ -36,11 +42,14 @@ export default connect(
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#ea4d00',
+    backgroundColor: '#DDDDDD',
     padding: 12
   },
   socialButtons: {
     marginLeft: 30,
-    marginRight: 30
+    marginRight: 30,
+    paddingTop: 20,
+    paddingBottom: 10,
+    flex: 0
   }
 })

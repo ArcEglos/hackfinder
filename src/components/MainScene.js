@@ -1,7 +1,9 @@
 import React, {Component, PropTypes} from 'react'
-import {Navigator, StatusBar, StyleSheet, View} from 'react-native'
+import {Navigator, StatusBar, StyleSheet, View, Text} from 'react-native'
 
 import BuzzScene from './buzz/BuzzScene'
+import Countdown from './buzz/Countdown'
+
 import Styles from './Styles'
 
 export default class MainScene extends Component {
@@ -35,12 +37,20 @@ export default class MainScene extends Component {
 
     return (
       <View style={Styles.fullContainer}>
-        {route.statusBar ? <StatusBar {...route.statusBar} /> : undefined}
-        <route.component
-          pushScene={pushScene}
-          popScene={popScene}
-          params={route.params || {}}
-        />
+
+        {/*<View style={Styles.navBarContainer}>
+                    <Text style={Styles.navBarButton}>Add</Text>
+                    <Text style={Styles.navBarTitle}>This is the title</Text>
+                    <Text style={Styles.navBarButton}>Like</Text>
+        </View>*/}
+        <View style={Styles.content}>
+          {route.statusBar ? <StatusBar {...route.statusBar} /> : undefined}
+          <route.component
+            pushScene={pushScene}
+            popScene={popScene}
+            params={route.params || {}}
+          />
+        </View>
       </View>
     )
   }
