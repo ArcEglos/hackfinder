@@ -15,7 +15,7 @@ class LoginScene extends Component {
   }
 
   componentDidMount () {
-    // this.serverAuth()
+    this.serverAuth()
   }
 
   componentWillReceiveProps (nextProps) {
@@ -29,12 +29,12 @@ class LoginScene extends Component {
     .logInWithReadPermissions(['public_profile'])
     .then(res => {
       if (res.isCancelled) {
-        console.error('cancelled')
+        console.warn('cancelled')
       } else {
         this.serverAuth()
       }
     }, err => {
-      console.error(err)
+      console.warn(err)
     })
   }
 
@@ -47,7 +47,7 @@ class LoginScene extends Component {
         console.log(data)
         this.props.startServerAuth(data.userID, data.accessToken)
       },
-      console.error
+      console.warn
     )
   }
 
