@@ -23,24 +23,10 @@ class MainScene extends Component {
 
   renderScene (route, navigator) {
     const pushScene = (key, params = {}) => {
-      let scene
-      if (route.scenes) {
-        scene = route.scenes[key]
-      }
-      if (!scene) {
-        scene = this.scenes[key]
-      }
-      navigator.push(Object.assign({}, scene, {params}))
+      navigator.push(Object.assign({}, this.scenes[key], {params}))
     }
     const replaceScene = (key, params = {}) => {
-      let scene
-      if (route.scenes) {
-        scene = route.scenes[key]
-      }
-      if (!scene) {
-        scene = this.scenes[key]
-      }
-      navigator.replace(Object.assign({}, scene, {params}))
+      navigator.replace(Object.assign({}, this.scenes[key], {params}))
     }
     const popScene = () => {
       navigator.pop()
@@ -61,7 +47,6 @@ class MainScene extends Component {
 
   render () {
     let {account} = this.props
-    console.log(this.props)
 
     return (
       <View style={Styles.fullContainer}>
