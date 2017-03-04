@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import {Navigator, StatusBar, StyleSheet, View} from 'react-native'
 
 import BuzzScene from './buzz/BuzzScene'
+import LoginScene from './login/LoginScene'
 import Styles from './Styles'
 
 export default class MainScene extends Component {
@@ -14,7 +15,8 @@ export default class MainScene extends Component {
       barStyle: 'default'
     }
     this.scenes = {
-      buzz: {component: BuzzScene}
+      buzz: {component: BuzzScene},
+      login: {component: LoginScene}
     }
   }
 
@@ -29,6 +31,16 @@ export default class MainScene extends Component {
       }
       navigator.push(Object.assign({}, scene, {params}))
     }
+    const replaceScene = (key, params = {}) => {
+      let scene
+      if (route.scenes) {
+        scene = route.scenes[key]
+      }
+      if (!scene) {
+        scene = this.scenes[key]
+      }
+      navigator.replace(Object.assign({}, scene, {params}))
+    }
     const popScene = () => {
       navigator.pop()
     }
@@ -38,6 +50,7 @@ export default class MainScene extends Component {
         {route.statusBar ? <StatusBar {...route.statusBar} /> : undefined}
         <route.component
           pushScene={pushScene}
+          replaceScene={replaceScene}
           popScene={popScene}
           params={route.params || {}}
         />
@@ -51,7 +64,7 @@ export default class MainScene extends Component {
         <StatusBar {...this.statusBarDefaults} />
         <Navigator
           ref='navigator'
-          initialRoute={this.scenes.buzz}
+          initialRoute={this.scenes.login}
           renderScene={this.renderScene}
         />
       </View>
