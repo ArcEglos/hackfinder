@@ -7,6 +7,7 @@ import Frisbee from 'frisbee'
 import {createApp} from './common'
 import MainScene from './components/MainScene'
 
+AsyncStorage.removeItem('state')
 export default class App extends Component {
   constructor (props, context) {
     super(props, context)
