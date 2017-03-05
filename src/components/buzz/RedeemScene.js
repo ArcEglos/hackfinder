@@ -18,14 +18,13 @@ class RedeemScene extends Component {
   }
 
   render () {
-    let {prices} = this.props
-    let pointsAvailable = 500
+    let {prices, account} = this.props
 
     return (
       <GradientOverlayContainer>
         <CloseButton onPress={this.props.popScene} />
         <Icon type='font-awesome' name='trophy' iconStyle={styles.icon} />
-        <Text style={styles.text}>{pointsAvailable}</Text>
+        <Text style={styles.text}>{account.points}</Text>
         <Text style={styles.text}>Punkte einlösen</Text>
         {prices.map(({points, title, key}) =>
           <DefaultButton
@@ -33,7 +32,7 @@ class RedeemScene extends Component {
             title={`${title} - ${points}`}
             onPress={() => this.redeem(key)}
             style={styles.button}
-            disabled={points > pointsAvailable}
+            disabled={points > account.points}
           />
         )}
       </GradientOverlayContainer>
@@ -43,7 +42,8 @@ class RedeemScene extends Component {
 
 export default connect(
   state => ({
-    prices: state.prices.items
+    prices: state.prices.items,
+    account: state.auth.account,
   }),
   {selectPrice}
 )(RedeemScene)

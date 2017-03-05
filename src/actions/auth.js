@@ -23,9 +23,8 @@ export function updatePoints(userId, actions) {
   console.log(userId, actions)
   return (dispatch, {api}) => {
     dispatch({type: UPDATE_POINTS_START})
-    api.put('/account', {
+    api.put('/account/' + userId, {
       body: {
-        userId,
         actions
       }
     })

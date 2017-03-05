@@ -5,7 +5,7 @@ import {Icon} from 'react-native-elements'
 export default function Points ({amount, textStyle, style}) {
   return (
     <View style={[styles.container, style]}>
-      <Text style={textStyle}>200</Text>
+      <Text style={textStyle}>{amount}</Text>
       <Icon type='font-awesome' name='trophy' iconStyle={textStyle} />
     </View>
   )

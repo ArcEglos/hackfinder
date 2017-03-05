@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native'
+import {AsyncStorage, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
+import {LoginManager} from 'react-native-fbsdk'
 
 import {fetchBuzzes} from '../../actions/buzz'
 import Styles from '../Styles'
@@ -8,10 +9,17 @@ import Points from '../Points'
 import Buzz from './Buzz'
 import Countdown from './Countdown'
 import ShareButtons from './ShareButtons'
+import CloseButton from '../CloseButton'
 
 class BuzzScene extends Component {
   componentDidMount () {
     this.props.fetchBuzzes()
+  }
+
+  logout () {
+    LoginManager.logOut()
+    AsyncStorage.removeItem('state')
+    this.props.replaceScene('login')
   }
 
   render () {
@@ -20,6 +28,7 @@ class BuzzScene extends Component {
 
     return (
       <View style={[Styles.statusBarContainer, styles.container]}>
+        <CloseButton onPress={() => this.logout()} />
         <TouchableOpacity style={styles.points} onPress={() => this.props.pushScene('redeem')}>
           <Points amount={500} textStyle={{color: '#b80000'}} />
         </TouchableOpacity>
