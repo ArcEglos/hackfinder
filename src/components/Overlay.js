@@ -14,10 +14,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 200, 200, 0.5)',
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: 'rgba(255, 200, 200, 0.6)',
-    marginRight: 20,
-    marginLeft: 20,
     padding: 12,
+    marginRight: 12,
+    marginLeft: 12,
+    borderColor: 'rgba(255, 200, 200, 0.6)',
     flex: 1
   }
 })

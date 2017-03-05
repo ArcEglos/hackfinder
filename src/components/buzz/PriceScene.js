@@ -9,6 +9,7 @@ import {redeemPrice} from '../../actions/prices'
 import GradientOverlayContainer from '../GradientOverlayContainer'
 import Points from '../Points'
 import DefaultButton from '../DefaultButton'
+import CloseButton from '../CloseButton'
 
 class PriceScene extends Component {
   constructor (props) {
@@ -18,7 +19,7 @@ class PriceScene extends Component {
 
   redeem () {
     this.props.redeemPrice(this.props.price)
-    this.props.pushScene('redeem')
+    this.props.replaceScene('redeem')
   }
 
   render () {
@@ -26,6 +27,7 @@ class PriceScene extends Component {
 
     return (
       <GradientOverlayContainer>
+        <CloseButton onPress={this.props.popScene} />
         <Icon type='font-awesome' name='trophy' iconStyle={styles.icon} />
         <Text style={styles.text}>Super fancy Gewinn</Text>
         <DefaultButton
