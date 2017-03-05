@@ -11,11 +11,6 @@ import Countdown from './Countdown'
 import ShareButtons from './ShareButtons'
 import CloseButton from '../CloseButton'
 
-const logout = () => {
-  LoginManager.logOut()
-  AsyncStorage.removeItem('state')
-}
-
 class BuzzScene extends Component {
   componentDidMount () {
     this.props.fetchBuzzes()
@@ -30,12 +25,12 @@ class BuzzScene extends Component {
   render () {
     let {loading, items, account} = this.props
     let buzz = items[0]
-console.log(account);
+
     return (
       <View style={[Styles.statusBarContainer, styles.container]}>
         <CloseButton onPress={() => this.logout()} />
         <TouchableOpacity style={styles.points} onPress={() => this.props.pushScene('redeem')}>
-          <Points amount={account.points} textStyle={{color: '#b80000'}} />
+          <Points amount={500} textStyle={{color: '#b80000'}} />
         </TouchableOpacity>
         {buzz && <Buzz buzz={buzz} />}
         {buzz && <Countdown to={buzz.expirationDate} />}
@@ -49,7 +44,7 @@ export default connect(
   state => ({
     loading: state.buzzes.loading,
     items: state.buzzes.items,
-    account: state.auth.account
+    account: state.account
   }),
   {fetchBuzzes}
 )(BuzzScene)
