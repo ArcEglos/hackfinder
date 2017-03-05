@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react'
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native'
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
 import {Icon} from 'react-native-elements'
 import LinearGradient from 'react-native-linear-gradient'
 import {AccessToken, LoginManager} from 'react-native-fbsdk'
@@ -55,7 +55,8 @@ class LoginScene extends Component {
     return (
       <LinearGradient colors={['#ea4d00', '#b80000']} style={[Styles.statusBarContainer, styles.container]}>
         <View style={styles.centerContainer}>
-          <Text style={styles.logo}>BuZz</Text>
+          <Image source={require('../images/logo.png')} style={styles.logo}/>
+          <Text style={styles.logoText}>MEGAFON</Text>
           <TouchableOpacity activeOpacity={0.9} onPress={this.onLogin}>
             <View style={styles.fbButton}>
               <Icon type='material-community' name='facebook' color='#ea4d00' />
@@ -89,9 +90,16 @@ const styles = StyleSheet.create({
   },
 
   logo: {
-    fontSize: 72,
+
+  },
+
+  logoText: {
+    fontSize: 36,
+    letterSpacing: 5,
     color: '#fff',
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
+    marginTop: 20,
+    marginBottom: 120
   },
 
   fbButton: {
