@@ -15,7 +15,6 @@ export default function GradientContainer ({children}) {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#ea4d00',
-    padding: 12,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center'

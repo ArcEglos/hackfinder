@@ -9,6 +9,7 @@ import {selectPrice} from '../../actions/prices'
 import GradientOverlayContainer from '../GradientOverlayContainer'
 import Points from '../Points'
 import DefaultButton from '../DefaultButton'
+import CloseButton from '../CloseButton'
 
 class RedeemScene extends Component {
   redeem (key) {
@@ -22,11 +23,13 @@ class RedeemScene extends Component {
 
     return (
       <GradientOverlayContainer>
+        <CloseButton onPress={this.props.popScene} />
         <Icon type='font-awesome' name='trophy' iconStyle={styles.icon} />
         <Text style={styles.text}>{pointsAvailable}</Text>
         <Text style={styles.text}>Punkte einlösen</Text>
         {prices.map(({points, title, key}) =>
           <DefaultButton
+            key={key}
             title={`${title} - ${points}`}
             onPress={() => this.redeem(key)}
             style={styles.button}

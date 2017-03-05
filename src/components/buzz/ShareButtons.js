@@ -14,7 +14,7 @@ export default class ShareButtons extends Component {
 
     return (
       <View style={[styles.container, style]}>
-          <SocialIcon style={styles.socialIcon} type='facebook' title='Teilen' button onPress={() => { onPressFacebook(postContentURL, descriptionText); } }/>
+          <SocialIcon style={styles.socialIcon} type='facebook' title='Teilen' button onPress={() => { onPressFacebook(postContentURL, descriptionText, this.props.onShared); } }/>
         <SocialIcon style={styles.socialIcon} type='twitter' title="Tweet" button/>
 
       </View>
@@ -22,7 +22,7 @@ export default class ShareButtons extends Component {
   }
 }
 
-function onPressFacebook(postContentURL, descriptionText) {
+function onPressFacebook(postContentURL, descriptionText, cb) {
     var tmp = this;
 
     var shareLinkContent = {
@@ -38,10 +38,13 @@ function onPressFacebook(postContentURL, descriptionText) {
       }
     ).then(
       function(result) {
+        cb();
+
         if (result.isCancelled) {
           alert('Share cancelled');
         } else {
           alert('Share success with postId: ' + result.postId);
+
         }
       },
       function(error) {

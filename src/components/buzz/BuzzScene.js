@@ -1,9 +1,10 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-import {StyleSheet, Text, View} from 'react-native'
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native'
 
 import {fetchBuzzes} from '../../actions/buzz'
 import Styles from '../Styles'
+import Points from '../Points'
 import Buzz from './Buzz'
 import Countdown from './Countdown'
 import ShareButtons from './ShareButtons'
@@ -19,9 +20,12 @@ class BuzzScene extends Component {
 
     return (
       <View style={[Styles.statusBarContainer, styles.container]}>
+        <TouchableOpacity style={styles.points} onPress={() => this.props.pushScene('redeem')}>
+          <Points amount={500} textStyle={{color: '#b80000'}} />
+        </TouchableOpacity>
         {buzz && <Buzz buzz={buzz} />}
         {buzz && <Countdown to={buzz.expirationDate} />}
-        <ShareButtons style={styles.socialButtons} postContentURL='https://www.facebook.com/martinschulz/photos/a.84734803461.80915.75969208461/10154677254603462/?type=3&permPage=1' descriptionText='In Berlin programmieren einige Verrückte beim Hackathon 24h lang für meinen Wahlkampf. Habe mit ihnen geskypet. Danke euch und viel Energie!'/>
+        <ShareButtons onShared={() => this.props.pushScene('aftershare')} style={styles.socialButtons} postContentURL='https://www.facebook.com/martinschulz/photos/a.84734803461.80915.75969208461/10154677254603462/?type=3&permPage=1' descriptionText='In Berlin programmieren einige Verrückte beim Hackathon 24h lang für meinen Wahlkampf. Habe mit ihnen geskypet. Danke euch und viel Energie!'/>
       </View>
     )
   }
@@ -29,7 +33,8 @@ class BuzzScene extends Component {
 
 export default connect(
   state => ({
-    ...state.buzzes,
+    loading: state.buzzes.loading,
+    items: state.buzzes.items,
     account: state.account
   }),
   {fetchBuzzes}
@@ -47,5 +52,11 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 10,
     flex: 0
+  },
+  points: {
+    position: 'absolute',
+    top: 30,
+    left: 15,
+    zIndex: 2
   }
 })

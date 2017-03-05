@@ -5,13 +5,21 @@ import {AppInviteDialog} from 'react-native-fbsdk'
 import LinearGradient from 'react-native-linear-gradient'
 import {Button, Icon} from 'react-native-elements'
 
+import {redeemPrice} from '../../actions/prices'
 import GradientOverlayContainer from '../GradientOverlayContainer'
 import Points from '../Points'
 import DefaultButton from '../DefaultButton'
+import CloseButton from '../CloseButton'
 
 class PriceScene extends Component {
-  redeem (key) {
-    this.props.pushScene('price', {key})
+  constructor (props) {
+    super(props)
+    this.redeem = this.redeem.bind(this)
+  }
+
+  redeem () {
+    this.props.redeemPrice(this.props.price)
+    this.props.replaceScene('redeem')
   }
 
   render () {
@@ -19,10 +27,12 @@ class PriceScene extends Component {
 
     return (
       <GradientOverlayContainer>
-        <Text style={styles.text}>{JSON.stringify(price)}</Text>
+        <CloseButton onPress={this.props.popScene} />
+        <Icon type='font-awesome' name='trophy' iconStyle={styles.icon} />
+        <Text style={styles.text}>Super fancy Gewinn</Text>
         <DefaultButton
           title={`${price.title} - ${price.points}`}
-          onPress={() => this.redeem(key)}
+          onPress={this.redeem}
           style={styles.button}
         />
       </GradientOverlayContainer>
@@ -31,10 +41,10 @@ class PriceScene extends Component {
 }
 
 export default connect(
-  state => {
-    console.log(state.prices)
-    return {price: state.prices.items.find(p => p.key === state.prices.selected)}
-  }
+  state => ({
+    price: state.prices.items.find(p => p.key === state.prices.selected)
+  }),
+  {redeemPrice}
 )(PriceScene)
 
 const styles = StyleSheet.create({

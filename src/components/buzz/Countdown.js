@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   countDownContent: {
     color: '#b80000',
     fontWeight:'bold',
-    fontSize: 98,
+    fontSize: 80,
     fontFamily: 'OpenSans-Light',
     fontWeight: '300',
     textAlign: 'center'
