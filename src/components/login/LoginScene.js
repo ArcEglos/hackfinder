@@ -26,7 +26,7 @@ class LoginScene extends Component {
 
   onLogin () {
     LoginManager
-    .logInWithReadPermissions(['public_profile'])
+    .logInWithReadPermissions(['public_profile', 'user_friends'])
     .then(res => {
       if (res.isCancelled) {
         console.warn('cancelled')

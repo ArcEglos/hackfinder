@@ -3,6 +3,8 @@ import {Navigator, StatusBar, StyleSheet, View} from 'react-native'
 import {connect} from 'react-redux'
 
 import BuzzScene from './buzz/BuzzScene'
+import NoBuzzScene from './buzz/NoBuzzScene'
+import InviteScene from './invite/InviteScene'
 import LoginScene from './login/LoginScene'
 import Styles from './Styles'
 
@@ -17,6 +19,8 @@ class MainScene extends Component {
     }
     this.scenes = {
       buzz: {component: BuzzScene},
+      nobuzz: {component: NoBuzzScene},
+      invite: {component: InviteScene},
       login: {component: LoginScene}
     }
   }
