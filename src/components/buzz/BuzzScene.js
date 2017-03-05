@@ -4,6 +4,7 @@ import {AsyncStorage, StyleSheet, Text, TouchableOpacity, View} from 'react-nati
 import {LoginManager} from 'react-native-fbsdk'
 
 import {fetchBuzzes} from '../../actions/buzz'
+import {startServerAuth} from '../../actions/auth'
 import Styles from '../Styles'
 import Points from '../Points'
 import Buzz from './Buzz'
@@ -13,7 +14,8 @@ import CloseButton from '../CloseButton'
 
 class BuzzScene extends Component {
   componentDidMount () {
-    this.props.fetchBuzzes()
+    // this.props.startServerAuth(this.props.account.userId, this.props.account.accessToken);
+    this.props.fetchBuzzes();
   }
 
   logout () {
@@ -30,7 +32,7 @@ class BuzzScene extends Component {
       <View style={[Styles.statusBarContainer, styles.container]}>
         <CloseButton onPress={() => this.logout()} />
         <TouchableOpacity style={styles.points} onPress={() => this.props.pushScene('redeem')}>
-          <Points amount={500} textStyle={{color: '#b80000', fontSize: 25}} />
+          <Points amount={account.points} textStyle={{color: '#b80000', fontSize: 25}} />
         </TouchableOpacity>
         {buzz && <Buzz buzz={buzz} />}
         {buzz && <Countdown to={buzz.expirationDate} />}
@@ -41,10 +43,10 @@ class BuzzScene extends Component {
 }
 
 export default connect(
-  state => ({
+  state => console.log(state) || ({
     loading: state.buzzes.loading,
     items: state.buzzes.items,
-    account: state.account
+    account: state.auth.account
   }),
   {fetchBuzzes}
 )(BuzzScene)
