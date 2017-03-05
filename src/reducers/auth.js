@@ -10,7 +10,7 @@ export default function auth (state = initialState, action = {}) {
       account: action.account
     })
     case UPDATE_POINTS_END: return Object.assign({}, state, {
-      account: Object.assign({}, state.account, points: )
+      account: Object.assign({}, state.account, points: action.points)
     })
   }
   return state
