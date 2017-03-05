@@ -14,7 +14,7 @@ class AfterShareScene extends Component {
   getReward() {
     console.log(this.props);
     this.props.updatePoints(this.props.account.userId, ['SHARE']);
-    this.props.pushScene('buzz');
+    this.props.popScene('buzz');
   }
 
   render () {
