@@ -23,7 +23,7 @@ export default class AfterShareScene extends Component {
             color='#ea4d00'
             borderRadius={30}
             title='MEGA'
-            onPress={() => this.props.pushScene('buzz')}
+            onPress={() => this.props.popScene('buzz')}
           />
         </Overlay>
       </LinearGradient>

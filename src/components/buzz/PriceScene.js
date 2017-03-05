@@ -29,6 +29,9 @@ class PriceScene extends Component {
       <GradientOverlayContainer>
         <CloseButton onPress={this.props.popScene} />
         <Icon type='font-awesome' name='trophy' iconStyle={styles.icon} />
+        <View style={styles.curry}>
+          <Image source={require('../images/martin_curry_klein.png')} width="250" resizeMode="contain" />
+        </View>
         <Text style={styles.text}>Super fancy Gewinn</Text>
         <DefaultButton
           title={`${price.title} - ${price.points}`}
@@ -60,5 +63,8 @@ const styles = StyleSheet.create({
   },
   button: {
     marginBottom: 8
+  },
+  curry: {
+    padding:30
   }
 })
