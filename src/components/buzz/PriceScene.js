@@ -5,7 +5,7 @@ import {AppInviteDialog} from 'react-native-fbsdk'
 import LinearGradient from 'react-native-linear-gradient'
 import {Button, Icon} from 'react-native-elements'
 
-import {redeemPrice} from '../../actions/prices'
+import {updatePoints} from '../../actions/auth'
 import GradientOverlayContainer from '../GradientOverlayContainer'
 import Points from '../Points'
 import DefaultButton from '../DefaultButton'
@@ -18,8 +18,9 @@ class PriceScene extends Component {
   }
 
   redeem () {
-    this.props.redeemPrice(this.props.price)
-    this.props.replaceScene('redeem')
+    console.log();
+    this.props.updatePoints(this.props.account.userId, [this.props.price.action])
+    this.props.replaceScene('buzz')
   }
 
   render () {
@@ -42,9 +43,10 @@ class PriceScene extends Component {
 
 export default connect(
   state => ({
-    price: state.prices.items.find(p => p.key === state.prices.selected)
+    price: state.prices.items.find(p => p.key === state.prices.selected),
+    account: state.auth.account,
   }),
-  {redeemPrice}
+  {updatePoints}
 )(PriceScene)
 
 const styles = StyleSheet.create({

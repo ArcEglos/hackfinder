@@ -8,8 +8,15 @@ import {Button} from 'react-native-elements'
 import Styles from '../Styles'
 import Overlay from '../Overlay'
 import Points from '../Points'
+import { updatePoints } from '../../actions/auth'
 
-export default class AfterShareScene extends Component {
+class AfterShareScene extends Component {
+  getReward() {
+    console.log(this.props);
+    this.props.updatePoints(this.props.account.userId, ['SHARE']);
+    this.props.pushScene('buzz');
+  }
+
   render () {
     return (
       <LinearGradient colors={['#ea4d00', '#b80000']} style={[Styles.statusBarContainer, styles.container]}>
@@ -22,13 +29,20 @@ export default class AfterShareScene extends Component {
             color='#ea4d00'
             borderRadius={30}
             title='MEGA'
-            onPress={() => this.props.pushScene('buzz')}
+            onPress={() => this.getReward()}
           />
         </Overlay>
       </LinearGradient>
     )
   }
 }
+
+export default connect(
+  state => ({
+    account: state.auth.account
+  }),
+  {updatePoints}
+)(AfterShareScene)
 
 const styles = StyleSheet.create({
   container: {
