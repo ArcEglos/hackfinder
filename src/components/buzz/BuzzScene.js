@@ -18,17 +18,11 @@ class BuzzScene extends Component {
     let buzz = items[0]
 
     return (
-
       <View style={[Styles.statusBarContainer, styles.container]}>
-        <View style={{
-          flex: 1,
-          flexDirection: 'column',
-        }}>
         {buzz && <Buzz buzz={buzz} />}
         {buzz && <Countdown to={buzz.expirationDate} />}
-        <ShareButtons style={styles.socialButtons} postContentURL='http://catpics.com'/>
+        <ShareButtons style={styles.socialButtons} postContentURL='https://www.facebook.com/martinschulz/photos/a.84734803461.80915.75969208461/10154677254603462/?type=3&permPage=1' descriptionText='In Berlin programmieren einige Verrückte beim Hackathon 24h lang für meinen Wahlkampf. Habe mit ihnen geskypet. Danke euch und viel Energie!'/>
       </View>
-    </View>
     )
   }
 }
@@ -44,7 +38,8 @@ export default connect(
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
-    padding: 12
+    padding: 12,
+    flexDirection: 'column',
   },
   socialButtons: {
     marginLeft: 30,

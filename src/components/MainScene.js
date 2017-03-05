@@ -11,6 +11,12 @@ import InviteScene from './invite/InviteScene'
 import LoginScene from './login/LoginScene'
 import Styles from './Styles'
 
+const MyStatusBar = ({backgroundColor, ...props}) => (
+  <View style={[Styles.statusBar, { backgroundColor }]}>
+    <StatusBar backgroundColor={backgroundColor} {...props} />
+  </View>
+);
+
 class MainScene extends Component {
 
   constructor (props, context) {
@@ -18,7 +24,8 @@ class MainScene extends Component {
 
     this.renderScene = this.renderScene.bind(this)
     this.statusBarDefaults = {
-      barStyle: 'default'
+      barStyle: 'default',
+      backgroundColor: '#b80000'
     }
     this.scenes = {
       buzz: {component: BuzzScene},
@@ -44,7 +51,7 @@ class MainScene extends Component {
 
     return (
       <View style={Styles.fullContainer}>
-        {route.statusBar ? <StatusBar {...route.statusBar} /> : undefined}
+        {route.statusBar ?  <MyStatusBar backgroundColor="#b80000" barStyle="light-content" />: undefined}
         <route.component
           pushScene={pushScene}
           replaceScene={replaceScene}
@@ -60,7 +67,7 @@ class MainScene extends Component {
 
     return (
       <View style={Styles.fullContainer}>
-        <StatusBar {...this.statusBarDefaults} />
+        <MyStatusBar backgroundColor="#b80000" barStyle="light-content" />
         <Navigator
           ref='navigator'
           initialRoute={account ? this.scenes.buzz : this.scenes.login}

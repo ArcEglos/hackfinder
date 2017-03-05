@@ -8,12 +8,13 @@ export default class ShareButtons extends Component {
   render () {
     const {
       postContentURL,
+      descriptionText,
       style
     } = this.props;
 
     return (
       <View style={[styles.container, style]}>
-          <SocialIcon style={styles.socialIcon} type='facebook' title='Teilen' button onPress={() => { onPressFacebook(postContentURL); } }/>
+          <SocialIcon style={styles.socialIcon} type='facebook' title='Teilen' button onPress={() => { onPressFacebook(postContentURL, descriptionText); } }/>
         <SocialIcon style={styles.socialIcon} type='twitter' title="Tweet" button/>
 
       </View>
@@ -21,13 +22,13 @@ export default class ShareButtons extends Component {
   }
 }
 
-function onPressFacebook(postContentURL) {
+function onPressFacebook(postContentURL, descriptionText) {
     var tmp = this;
 
     var shareLinkContent = {
       contentType: 'link',
       contentUrl: postContentURL,
-      contentDescription: 'MEGA'
+      contentDescription: descriptionText
     }
     ShareDialog.canShow(shareLinkContent).then(
       function(canShow) {

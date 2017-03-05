@@ -51,8 +51,6 @@ render () {
 
 const styles = StyleSheet.create({
   countDownContainer: {
-    flex:0,
-    flexDirection: 'column',
     paddingTop: 0,
     paddingBottom: 10
   },
