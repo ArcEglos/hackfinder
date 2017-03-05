@@ -14,7 +14,7 @@ class BuzzScene extends Component {
   }
 
   render () {
-    let {loading, items} = this.props
+    let {loading, items, account} = this.props
     let buzz = items[0]
 
     return (
@@ -29,7 +29,8 @@ class BuzzScene extends Component {
 
 export default connect(
   state => ({
-    ...state.buzzes
+    ...state.buzzes,
+    account: state.account
   }),
   {fetchBuzzes}
 )(BuzzScene)
