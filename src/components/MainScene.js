@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react'
-import {Navigator, StatusBar, StyleSheet, View} from 'react-native'
+import {Navigator, StatusBar, StyleSheet, View, Text} from 'react-native'
 import {connect} from 'react-redux'
 
 import BuzzScene from './buzz/BuzzScene'
