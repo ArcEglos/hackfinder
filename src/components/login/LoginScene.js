@@ -56,7 +56,7 @@ class LoginScene extends Component {
       <LinearGradient colors={['#ea4d00', '#b80000']} style={[Styles.statusBarContainer, styles.container]}>
         <View style={styles.centerContainer}>
           <Image source={require('../images/logo.png')} style={styles.logo}/>
-          <Text style={styles.logoText}>Megafon</Text>
+          <Text style={styles.logoText}>MEGAFON</Text>
           <TouchableOpacity activeOpacity={0.9} onPress={this.onLogin}>
             <View style={styles.fbButton}>
               <Icon type='material-community' name='facebook' color='#ea4d00' />
@@ -94,10 +94,11 @@ const styles = StyleSheet.create({
   },
 
   logoText: {
-    fontSize: 28,
-    fontWeight: '300',
+    fontSize: 36,
+    letterSpacing: 5,
     color: '#fff',
     backgroundColor: 'transparent',
+    marginTop: 20,
     marginBottom: 120
   },
 
