@@ -17,11 +17,11 @@ export default StyleSheet.create({
   },
   navBarButton:{
       width: 50,
-      color:'#f00',
+      color:'#b80000',
       textAlign:'center'
   },
   navBarTitle:{
-      color:'#f00',
+      color:'#b80000',
       textAlign:'center',
       fontWeight:'bold',
       flex:1

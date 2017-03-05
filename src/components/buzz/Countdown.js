@@ -53,16 +53,16 @@ const styles = StyleSheet.create({
   countDownContainer: {
     flex:0,
     flexDirection: 'column',
-    paddingTop: 20,
+    paddingTop: 0,
     paddingBottom: 10
   },
   countDownTitle: {
     textAlign:'center'
   },
   countDownContent: {
-    color: '#f00',
+    color: '#b80000',
     fontWeight:'bold',
-    fontSize: 80,
+    fontSize: 98,
     fontFamily: 'OpenSans-Light',
     fontWeight: '300',
     textAlign: 'center'

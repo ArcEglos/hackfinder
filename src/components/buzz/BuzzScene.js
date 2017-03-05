@@ -42,7 +42,7 @@ export default connect(
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#DDDDDD',
+    backgroundColor: '#fff',
     padding: 12
   },
   socialButtons: {
