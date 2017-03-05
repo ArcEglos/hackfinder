@@ -4,6 +4,9 @@ import {connect} from 'react-redux'
 
 import BuzzScene from './buzz/BuzzScene'
 import NoBuzzScene from './buzz/NoBuzzScene'
+import AfterShareScene from './buzz/AfterShareScene'
+import RedeemScene from './buzz/RedeemScene'
+import PriceScene from './buzz/PriceScene'
 import InviteScene from './invite/InviteScene'
 import LoginScene from './login/LoginScene'
 import Styles from './Styles'
@@ -20,6 +23,9 @@ class MainScene extends Component {
     this.scenes = {
       buzz: {component: BuzzScene},
       nobuzz: {component: NoBuzzScene},
+      aftershare: {component: AfterShareScene},
+      redeem: {component: RedeemScene},
+      price: {component: PriceScene},
       invite: {component: InviteScene},
       login: {component: LoginScene}
     }

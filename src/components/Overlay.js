@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(255, 200, 200, 0.6)',
     marginRight: 20,
     marginLeft: 20,
+    padding: 12,
     flex: 1
   }
 })
