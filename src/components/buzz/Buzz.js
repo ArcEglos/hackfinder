@@ -5,7 +5,7 @@ export default function Buzz ({buzz}) {
   return (
     <View style={styles.container}>
        <TouchableHighlight style={ styles.imageContainer }>
-            <Image style={ styles.image } source={{ uri: 'https://d4n5pyzr6ibrc.cloudfront.net/media/27FB7F0C-9885-42A6-9E0C19C35242B5AC/4785B1C2-8734-405D-96DC23A6A32F256B/thul-90efb785-97af-5e51-94cf-503fc81b6940.jpg' }} />
+            <Image style={ styles.image } source={require('./martin_pb.png')} />
        </TouchableHighlight>
       <Text style={styles.headline}>Hier spricht Martin:</Text>
       <Text style={styles.text}>{buzz.message}</Text>
@@ -26,12 +26,14 @@ const styles = StyleSheet.create({
     marginTop: 80
   },
   headline: {
+    fontFamily: 'OpenSans-Light',
     fontSize: 16,
     fontWeight: '300',
     color: '#fff',
     marginBottom: 8
   },
   text: {
+    fontFamily: 'OpenSans-Light',
     color: '#fff',
     fontWeight: '300'
   },
@@ -40,7 +42,7 @@ const styles = StyleSheet.create({
     width: 128,
     borderRadius: 64,
     borderWidth: 1,
-    borderColor: '#f00',
+    borderColor: '#fff',
     marginTop: -65,
     right: -1,
     position: 'absolute',

@@ -9,7 +9,7 @@ export default function ShareButtons ({style, postContentURL}) {
         <SocialIcon style={styles.socialIcon} type='facebook' title='Teilen' button/>
       {/*</TouchableHighlight>*/}
       <SocialIcon style={styles.socialIcon} type='twitter' title="Tweet" button/>
-      {/*<SocialIcon name='snapchat' />*/}
+
     </View>
   )
 }
@@ -26,6 +26,5 @@ const styles = StyleSheet.create({
   },
   socialIcon: {
     flex: 1
-
-  }
+    }
 })

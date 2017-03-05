@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -42,6 +41,8 @@
 		2F1309951E6B8B0D00320136 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F1309911E6B8B0D00320136 /* FBSDKCoreKit.framework */; };
 		2F1309961E6B8B0D00320136 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F1309921E6B8B0D00320136 /* FBSDKLoginKit.framework */; };
 		2F1309971E6B8B0D00320136 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F1309931E6B8B0D00320136 /* FBSDKShareKit.framework */; };
+		2F13099A1E6B936200320136 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F1309981E6B936200320136 /* OpenSans-Bold.ttf */; };
+		2F13099B1E6B936200320136 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F1309991E6B936200320136 /* OpenSans-Light.ttf */; };
 		33FEC635F84B49138E95E1A5 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61093BEE639E4C608148145C /* MaterialIcons.ttf */; };
 		3E23D7F17B7A4F829A15B3A9 /* libReactNativeConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38ABE8B15E5B448A9237714D /* libReactNativeConfig.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
@@ -305,6 +306,8 @@
 		2F1309911E6B8B0D00320136 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		2F1309921E6B8B0D00320136 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		2F1309931E6B8B0D00320136 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		2F1309981E6B936200320136 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		2F1309991E6B936200320136 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
 		2F8ACE63C9DD410683F69DB4 /* libRCTFBSDK.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTFBSDK.a; sourceTree = "<group>"; };
 		38ABE8B15E5B448A9237714D /* libReactNativeConfig.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativeConfig.a; sourceTree = "<group>"; };
 		4106415B965C44DEA33D4609 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
@@ -603,6 +606,8 @@
 		DEA33DBD4C03428BB0723A25 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2F1309981E6B936200320136 /* OpenSans-Bold.ttf */,
+				2F1309991E6B936200320136 /* OpenSans-Light.ttf */,
 				037708ADD32344C9A5169F22 /* Entypo.ttf */,
 				91BE2BE9A30C400E805DED7A /* EvilIcons.ttf */,
 				5C3290794B9644CBBF7ACB57 /* FontAwesome.ttf */,
@@ -1022,6 +1027,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				2F13099B1E6B936200320136 /* OpenSans-Light.ttf in Resources */,
 				E0D6F8FB5D954C0EB6A5E10A /* Entypo.ttf in Resources */,
 				2591E63305E0485880E4D104 /* EvilIcons.ttf in Resources */,
 				299EC8F0F62F494099429EC2 /* FontAwesome.ttf in Resources */,
@@ -1030,6 +1036,7 @@
 				2CE81122B10A40A582777375 /* MaterialCommunityIcons.ttf in Resources */,
 				33FEC635F84B49138E95E1A5 /* MaterialIcons.ttf in Resources */,
 				64ECE07EF31540C897D99379 /* Octicons.ttf in Resources */,
+				2F13099A1E6B936200320136 /* OpenSans-Bold.ttf in Resources */,
 				AC2130D2347E426DB66558E0 /* SimpleLineIcons.ttf in Resources */,
 				75DABF89C2034304A6BC4CF6 /* Zocial.ttf in Resources */,
 			);
