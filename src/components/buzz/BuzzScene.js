@@ -30,7 +30,7 @@ class BuzzScene extends Component {
       <View style={[Styles.statusBarContainer, styles.container]}>
         <CloseButton onPress={() => this.logout()} />
         <TouchableOpacity style={styles.points} onPress={() => this.props.pushScene('redeem')}>
-          <Points amount={500} textStyle={{color: '#b80000'}} />
+          <Points amount={500} textStyle={{color: '#b80000', fontSize: 25}} />
         </TouchableOpacity>
         {buzz && <Buzz buzz={buzz} />}
         {buzz && <Countdown to={buzz.expirationDate} />}
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   socialButtons: {
     marginLeft: 30,
     marginRight: 30,
-    paddingTop: 20,
+    paddingTop: 0,
     paddingBottom: 10,
     flex: 0
   },
