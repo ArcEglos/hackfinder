@@ -63,7 +63,7 @@ class MainScene extends Component {
         <StatusBar {...this.statusBarDefaults} />
         <Navigator
           ref='navigator'
-          initialRoute={account ? this.scenes.buzz : this.scenes.login}
+          initialRoute={account ? this.scenes.redeem : this.scenes.login}
           renderScene={this.renderScene}
         />
       </View>
