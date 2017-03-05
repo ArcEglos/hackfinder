@@ -1,9 +1,10 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-import {StyleSheet, Text, View} from 'react-native'
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native'
 
 import {fetchBuzzes} from '../../actions/buzz'
 import Styles from '../Styles'
+import Points from '../Points'
 import Buzz from './Buzz'
 import Countdown from './Countdown'
 import ShareButtons from './ShareButtons'
@@ -18,11 +19,14 @@ class BuzzScene extends Component {
     let buzz = items[0]
 
     return (
-
       <View style={[Styles.statusBarContainer, styles.container]}>
+        <TouchableOpacity style={styles.points} onPress={() => this.props.pushScene('redeem')}>
+          <Points amount={500} textStyle={{color: '#b80000'}} />
+        </TouchableOpacity>
         <View style={{
           flex: 1,
           flexDirection: 'column',
+          zIndex: 1
         }}>
         {buzz && <Buzz buzz={buzz} />}
         {buzz && <Countdown to={buzz.expirationDate} />}
@@ -52,5 +56,11 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 10,
     flex: 0
+  },
+  points: {
+    position: 'absolute',
+    top: 30,
+    left: 15,
+    zIndex: 2
   }
 })
